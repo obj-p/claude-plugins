@@ -1,0 +1,8 @@
+{
+  "name": "git",
+  "description": "Git-related commands and utilities",
+  "version": "1.0.0",
+  "author": {
+    "name": "obj-p"
+  }
+}

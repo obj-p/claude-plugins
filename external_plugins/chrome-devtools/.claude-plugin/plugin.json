@@ -1,0 +1,7 @@
+{
+  "name": "chrome-devtools",
+  "description": "Chrome DevTools MCP server for browser debugging and inspection. Provides access to Chrome DevTools Protocol for page snapshots, network inspection, console messages, and performance tracing.",
+  "author": {
+    "name": "Google LLC"
+  }
+}

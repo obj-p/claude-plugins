@@ -1,0 +1,46 @@
+{
+  "name": "dotfiles-marketplace",
+  "owner": {
+    "name": "obj-p"
+  },
+  "metadata": {
+    "description": "Personal dotfiles plugins"
+  },
+  "plugins": [
+    {
+      "name": "git",
+      "source": "./plugins/git",
+      "description": "Git-related commands and utilities"
+    },
+    {
+      "name": "context7",
+      "source": "./external_plugins/context7",
+      "description": "Upstash Context7 MCP server for up-to-date documentation lookup"
+    },
+    {
+      "name": "playwright",
+      "source": "./external_plugins/playwright",
+      "description": "Playwright MCP server for browser automation"
+    },
+    {
+      "name": "chrome-devtools",
+      "source": "./external_plugins/chrome-devtools",
+      "description": "Chrome DevTools MCP server for browser debugging and inspection"
+    },
+    {
+      "name": "github",
+      "source": "./external_plugins/github",
+      "description": "Official GitHub MCP server for repository management"
+    },
+    {
+      "name": "code-review",
+      "source": "./plugins/code-review",
+      "description": "Automated code review for pull requests using multiple specialized agents"
+    },
+    {
+      "name": "code-simplifier",
+      "source": "./plugins/code-simplifier",
+      "description": "Agent that simplifies and refines code for clarity and maintainability"
+    }
+  ]
+}

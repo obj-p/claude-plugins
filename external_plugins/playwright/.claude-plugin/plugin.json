@@ -1,0 +1,7 @@
+{
+  "name": "playwright",
+  "description": "Playwright MCP server for browser automation. Enables automated testing, web scraping, and browser interactions through the Model Context Protocol.",
+  "author": {
+    "name": "Microsoft"
+  }
+}
