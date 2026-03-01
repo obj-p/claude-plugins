@@ -28,11 +28,6 @@
       "description": "Chrome DevTools MCP server for browser debugging and inspection"
     },
     {
-      "name": "github",
-      "source": "./external_plugins/github",
-      "description": "Official GitHub MCP server for repository management"
-    },
-    {
       "name": "code-review",
       "source": "./plugins/code-review",
       "description": "Automated code review for pull requests using multiple specialized agents"
