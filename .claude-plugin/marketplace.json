@@ -41,6 +41,11 @@
       "name": "code-simplifier",
       "source": "./plugins/code-simplifier",
       "description": "Agent that simplifies and refines code for clarity and maintainability"
+    },
+    {
+      "name": "pairing",
+      "source": "./plugins/pairing",
+      "description": "Pair-programming skills — includes backseat-driver for human-led TDD"
     }
   ]
 }
