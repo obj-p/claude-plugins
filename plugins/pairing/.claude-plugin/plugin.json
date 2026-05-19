@@ -1,0 +1,8 @@
+{
+  "name": "pairing",
+  "description": "Pair-programming skills that change how Claude collaborates on code — including backseat-driver for human-led TDD",
+  "version": "0.1.0",
+  "author": {
+    "name": "obj-p"
+  }
+}
