@@ -5,7 +5,7 @@ input="$(cat)"
 sid="$(printf '%s' "$input" | tr -d '\n' | sed -n 's/.*"session_id"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/p')"
 [ -z "$sid" ] && exit 0
 
-root="${CLAUDE_PROJECT_DIR:-$PWD}/.claude/mailbox"
+root="$HOME/.claude/mailbox"
 [ -f "$root/.watch/$sid" ] || exit 0
 [ -f "$root/.who/$sid" ] || exit 0
 me="$(cat "$root/.who/$sid")"

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-root="${CLAUDE_PROJECT_DIR:-$PWD}/.claude/mailbox"
+root="$HOME/.claude/mailbox"
 who_dir="$root/.who"
 watch_dir="$root/.watch"
 sid="${CLAUDE_CODE_SESSION_ID:-}"
 
 usage() {
-  echo "usage: mail.sh {iam <name>|send <to> <message...>|read [name]|watch|unwatch}"
+  echo "usage: mail.sh {iam <name>|send <to> <message...>|read [name]|hook [off]|clean [all]}"
 }
 
 resolve_addr() {
@@ -74,16 +74,32 @@ case "$cmd" in
     [ -z "$me" ] && { echo "error: no identity; run /mail iam <name> first"; exit 1; }
     drain "$me"
     ;;
-  watch)
+  hook)
     [ -z "$sid" ] && { echo "error: no session id available"; exit 1; }
-    mkdir -p "$watch_dir"
-    : > "$watch_dir/$sid"
-    echo "watching: mail will be injected at the start of each turn"
+    if [ "${1:-on}" = "off" ]; then
+      rm -f "$watch_dir/$sid"
+      echo "hook off: no longer injecting mail at the start of each turn"
+    else
+      mkdir -p "$watch_dir"
+      : > "$watch_dir/$sid"
+      echo "hook on: mail will be injected at the start of each turn"
+    fi
     ;;
-  unwatch)
-    [ -z "$sid" ] && { echo "error: no session id available"; exit 1; }
-    rm -f "$watch_dir/$sid"
-    echo "no longer watching"
+  clean)
+    if [ "${1:-}" = "all" ]; then
+      count=0
+      for d in "$root"/*/; do
+        [ -e "$d" ] || continue
+        rm -rf "$d"
+        count=$((count + 1))
+      done
+      echo "cleaned $count mailbox(es)"
+    else
+      me="$(resolve_addr)"
+      [ -z "$me" ] && { echo "error: no identity; run /mail iam <name> first"; exit 1; }
+      rm -rf "${root:?}/$me"
+      echo "cleaned mailbox for '$me'"
+    fi
     ;;
   *)
     usage
