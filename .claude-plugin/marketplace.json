@@ -41,6 +41,11 @@
       "name": "pairing",
       "source": "./plugins/pairing",
       "description": "Pair-programming skills — includes backseat-driver for human-led TDD"
+    },
+    {
+      "name": "mailbox",
+      "source": "./plugins/mailbox",
+      "description": "File-based mailbox for cross-session and subagent messaging"
     }
   ]
 }

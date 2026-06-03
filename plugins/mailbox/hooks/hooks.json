@@ -1,0 +1,15 @@
+{
+  "description": "Mailbox auto-inject of unread mail for watching sessions",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/hooks/mail-inject.sh\""
+          }
+        ]
+      }
+    ]
+  }
+}
