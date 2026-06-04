@@ -5,6 +5,11 @@ root="$HOME/.claude/mailbox"
 sid="${CLAUDE_CODE_SESSION_ID:-}"
 
 me="${1:-}"
+secs=""
+case "$me" in
+  ''|*[!0-9]*) ;;
+  *) secs="$me"; me="" ;;
+esac
 if [ -z "$me" ] && [ -n "$sid" ] && [ -f "$root/.who/$sid" ]; then
   me="$(cat "$root/.who/$sid")"
 fi
@@ -15,8 +20,9 @@ arch="$root/$me/read"
 mkdir -p "$box" "$arch"
 
 echo "watching mailbox for '$me'"
-end=$((SECONDS + 1800))
-while [ "$SECONDS" -lt "$end" ]; do
+end=""
+[ -n "$secs" ] && end=$((SECONDS + secs))
+while [ -z "$end" ] || [ "$SECONDS" -lt "$end" ]; do
   for f in "$box"/*.txt; do
     [ -e "$f" ] || continue
     base="$(basename "$f")"

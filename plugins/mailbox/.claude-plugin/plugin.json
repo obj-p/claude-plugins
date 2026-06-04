@@ -1,7 +1,7 @@
 {
   "name": "mailbox",
   "description": "File-based mailbox for cross-session and subagent messaging",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": {
     "name": "obj-p"
   }
