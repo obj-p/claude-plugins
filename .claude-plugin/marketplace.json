@@ -46,6 +46,11 @@
       "name": "mailbox",
       "source": "./plugins/mailbox",
       "description": "File-based mailbox for cross-session and subagent messaging"
+    },
+    {
+      "name": "handoff",
+      "source": "./plugins/handoff",
+      "description": "Hand off work between sessions with full-context handoff files and memory updates"
     }
   ]
 }

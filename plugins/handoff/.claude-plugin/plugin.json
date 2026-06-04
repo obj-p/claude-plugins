@@ -1,0 +1,8 @@
+{
+  "name": "handoff",
+  "description": "Hand off work between sessions with full-context handoff files and memory updates",
+  "version": "0.1.0",
+  "author": {
+    "name": "obj-p"
+  }
+}
