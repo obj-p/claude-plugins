@@ -6,9 +6,13 @@ You are picking up work handed off from a previous session.
 
 ## 1. Find the handoff
 
+Determine the repo name with
+`basename "$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"`
+so all worktrees of a repo share one name.
+
 If $ARGUMENTS names a handoff file, use it. Otherwise take the most recently
-modified file in `.claude/handoffs/` (ignore the `archive/` subdirectory).
-If there is none, tell the user and stop.
+modified file in `~/.claude/handoffs/<repo>/` (ignore the `archive/`
+subdirectory). If there is none, tell the user and stop.
 
 ## 2. Verify it against reality
 
@@ -24,7 +28,7 @@ Tell the user about any drift you find and how you plan to adjust.
 
 ## 3. Archive it
 
-Move the handoff file to `.claude/handoffs/archive/`.
+Move the handoff file to `~/.claude/handoffs/<repo>/archive/`.
 
 ## 4. Continue the work
 

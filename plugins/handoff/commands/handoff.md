@@ -21,9 +21,11 @@ this conversation.
 
 ## 2. Write the handoff file
 
-Determine today's date with `date +%Y-%m-%d`, pick a short kebab-case slug
-for the task, and write `.claude/handoffs/<date>-<slug>.md` in the project
-root with these sections:
+Determine today's date with `date +%Y-%m-%d` and the repo name with
+`basename "$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"`
+so all worktrees of a repo share one name. Pick a short kebab-case slug for
+the task and write `~/.claude/handoffs/<repo>/<date>-<slug>.md` with these
+sections:
 
 - **Goal**: the original ask, in one or two sentences
 - **Done**: what is complete, and how each item was verified
@@ -36,9 +38,6 @@ root with these sections:
 Be specific. Exact file paths, exact command invocations, exact error
 messages. The next session has none of your context. Gotchas are the most
 valuable section because they are the most expensive to rediscover.
-
-If `.claude/handoffs/` is not covered by a gitignore, suggest the user add
-it.
 
 ## 3. Tell the user
 
