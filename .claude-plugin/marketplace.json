@@ -51,6 +51,11 @@
       "name": "handoff",
       "source": "./plugins/handoff",
       "description": "Hand off work between sessions with full-context handoff files and memory updates"
+    },
+    {
+      "name": "memory",
+      "source": "./plugins/memory",
+      "description": "Archive cold memories out of the recall path to cut token cost"
     }
   ]
 }
