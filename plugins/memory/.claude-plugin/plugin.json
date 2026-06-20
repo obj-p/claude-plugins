@@ -1,0 +1,8 @@
+{
+  "name": "memory",
+  "description": "Archive cold memories out of the recall path to cut token cost",
+  "version": "0.1.0",
+  "author": {
+    "name": "obj-p"
+  }
+}
