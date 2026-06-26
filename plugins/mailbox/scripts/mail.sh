@@ -54,7 +54,25 @@ case "$cmd" in
     echo "registered as '$name' for this session"
     ;;
   send)
-    payload="$(cat)"
+    if [ "$#" -gt 0 ]; then
+      payload="$*"
+    elif [ ! -t 0 ]; then
+      payload="$(cat)"
+    else
+      payload=""
+    fi
+    if [ -z "${payload//[[:space:]]/}" ]; then
+      {
+        echo "error: no message provided"
+        echo "pass it as arguments:"
+        echo "  mail.sh send <to> <message...>"
+        echo "or pipe it on stdin:"
+        echo "  mail.sh send <<'MAILBOX_EOF'"
+        echo "  <to> <message...>"
+        echo "  MAILBOX_EOF"
+      } >&2
+      exit 1
+    fi
     to="${payload%%[[:space:]]*}"
     body="${payload#"$to"}"
     body="${body#"${body%%[![:space:]]*}"}"
